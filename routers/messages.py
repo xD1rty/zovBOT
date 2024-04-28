@@ -33,7 +33,7 @@ async def start_bot(message: Message, command: Command, state: FSMContext):
                              "Для начала, хотел бы попросить название компании")
         await state.set_state(CompanyRegistration.name)
     else:
-        await message.answer("Еще не сделано")
+        await message.answer("Вы добавлены в группу!")
 
 
 @main_router.message(CompanyRegistration.name, F.chat.type == ChatType.PRIVATE)
@@ -90,4 +90,4 @@ async def schedule_meet(message: Message):
     
     await db.create_zov(time, group.id)
 
-    await message.answer("🚀✅")
+    await message.answer("Встреча создана!")
